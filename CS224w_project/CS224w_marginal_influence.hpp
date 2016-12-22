@@ -10,5 +10,25 @@
 #define CS224w_marginal_influence_hpp
 
 #include <stdio.h>
+#include "CS224w_graph_utils.hpp"
+#include <random>
+#include <cstdarg>
+
+
+typedef vector<int> VI;
+
+typedef unordered_map<int, VI> Graph;
+
+
+int montecarlo_one_iter(Graph &G, unordered_set<int> S, int u, double p);
+
+
+double montecarlo_marginal_influence(Graph & G, unordered_set<int>& S, int u, double p, int numIter=10000);
+
+
+double deterministic_marginal_influence(Graph & G, unordered_set<int>& S, int u, double p, int numIter=10000);
+
+double getInfluence(Graph & G, unordered_set<int>& S, double p, int numIter);
+
 
 #endif /* CS224w_marginal_influence_hpp */
